@@ -1,8 +1,11 @@
 'use strict';
-const fetchJsonFile = await fetch('./api.json');
-const DID_API = await fetchJsonFile.json();
 
-if (DID_API.key == '🤫') alert('Please put your api key inside ./api.json and restart..');
+const DID_API_KEY = process.env.DID_API_KEY;
+
+if (!DID_API_KEY || DID_API_KEY === '🤫') {
+  throw new Error('Please set your DID_API_KEY in environment variables.');
+}
+
 
 const RTCPeerConnection = (
   window.RTCPeerConnection ||
