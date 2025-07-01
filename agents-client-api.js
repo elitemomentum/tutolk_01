@@ -1,9 +1,13 @@
 'use strict';
-const fetchJsonFile = await fetch('./api.json');
-const DID_API = await fetchJsonFile.json();
 
-if (DID_API.key == '🤫') alert('Please put your api key inside ./api.json and restart..');
+// Replace the fetch with environment variable access
+const DID_API = {
+    key: process.env.DID_API_KEY || '🤫'
+};
 
+if (DID_API.key == '🤫') {
+    alert('Please set your DID_API_KEY environment variable in Vercel dashboard');
+}
 const RTCPeerConnection = (
   window.RTCPeerConnection ||
   window.webkitRTCPeerConnection ||
