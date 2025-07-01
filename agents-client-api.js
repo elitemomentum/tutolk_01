@@ -1,13 +1,11 @@
 'use strict';
 
-// Replace the fetch with environment variable access
-const DID_API = {
-    key: process.env.DID_API_KEY || '🤫'
-};
+const DID_API_KEY = process.env.NEXT_PUBLIC_DID_API_KEY;
 
-if (DID_API.key == '🤫') {
-    alert('Please set your DID_API_KEY environment variable in Vercel dashboard');
+if (!DID_API_KEY || DID_API_KEY === '🤫') {
+  alert('Please set your NEXT_PUBLIC_DID_API_KEY in Vercel environment variables and redeploy.');
 }
+
 const RTCPeerConnection = (
   window.RTCPeerConnection ||
   window.webkitRTCPeerConnection ||
