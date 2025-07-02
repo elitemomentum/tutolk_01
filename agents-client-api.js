@@ -430,8 +430,9 @@ async function agentsAPIworkflow() {
 
   const createDocument = await axios.post(`/knowledge/${knowledgeId}/documents`, {
     documentType: 'pdf',
-    source_url: 'https://d-id-public-bucket.s3.us-west-2.amazonaws.com/Prompt_engineering_Wikipedia.pdf',
-    title: 'Prompt Engineering Wikipedia Page PDF',
+    source_url: '/Tutolk%20English%20Stories.pdf',
+    title: 'Tutolk English Stories PDF',
+
   });
   console.log('Create Document: ', createDocument.data);
 
